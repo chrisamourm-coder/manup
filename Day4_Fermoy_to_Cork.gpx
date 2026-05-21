@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gpx xmlns="http://www.topografix.com/GPX/1/1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.topografix.com/GPX/1/1 http://www.topografix.com/GPX/1/1/gpx.xsd" version="1.1" creator="gpx.py -- https://github.com/tkrajina/gpxpy">
+  <metadata>
+    <name>Man Up Speak Up - Day 4: Fermoy to Cork (65km)</name>
+    <desc>28 May 2026 - 8am Start - Finish at Shandon Tower</desc>
+    <author>
+      <name>Chris Amour</name>
+      <email id="chrisamourm" domain="gmail.com" />
+    </author>
+  </metadata>
+  <wpt lat="52.1378" lon="-8.2726">
+    <name>START - Fermoy</name>
+  </wpt>
+  <wpt lat="52.0833" lon="-8.2833">
+    <name>Rathcormac (9km)</name>
+  </wpt>
+  <wpt lat="52.0114" lon="-8.3441">
+    <name>Watergrasshill - Last Climb (22km)</name>
+  </wpt>
+  <wpt lat="51.9456" lon="-8.3789">
+    <name>Sallybrook</name>
+  </wpt>
+  <wpt lat="51.9177" lon="-8.3982">
+    <name>Glanmire (43km)</name>
+  </wpt>
+  <wpt lat="51.9023" lon="-8.4612">
+    <name>Cork City Centre - River Lee</name>
+  </wpt>
+  <wpt lat="51.9033" lon="-8.4759">
+    <name>FINISH - Shandon Tower, Cork (65km)</name>
+  </wpt>
+  <trk>
+    <name>Man Up Speak Up - Day 4: Fermoy to Cork (65km)</name>
+    <desc>28 May 2026 - 8am Start - Finish at Shandon Tower</desc>
+    <trkseg>
+      <trkpt lat="52.1378" lon="-8.2726">
+      </trkpt>
+      <trkpt lat="52.0833" lon="-8.2833">
+      </trkpt>
+      <trkpt lat="52.0114" lon="-8.3441">
+      </trkpt>
+      <trkpt lat="51.9456" lon="-8.3789">
+      </trkpt>
+      <trkpt lat="51.9177" lon="-8.3982">
+      </trkpt>
+      <trkpt lat="51.9023" lon="-8.4612">
+      </trkpt>
+      <trkpt lat="51.9033" lon="-8.4759">
+      </trkpt>
+    </trkseg>
+  </trk>
+</gpx>

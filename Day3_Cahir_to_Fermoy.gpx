@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gpx xmlns="http://www.topografix.com/GPX/1/1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.topografix.com/GPX/1/1 http://www.topografix.com/GPX/1/1/gpx.xsd" version="1.1" creator="gpx.py -- https://github.com/tkrajina/gpxpy">
+  <metadata>
+    <name>Man Up Speak Up - Day 3: Cahir to Fermoy (70km)</name>
+    <desc>27 May 2026 - 8am Start - Galtee Mountains</desc>
+    <author>
+      <name>Chris Amour</name>
+      <email id="chrisamourm" domain="gmail.com" />
+    </author>
+  </metadata>
+  <wpt lat="52.3745" lon="-7.9241">
+    <name>START - Cahir</name>
+  </wpt>
+  <wpt lat="52.3234" lon="-8.0567">
+    <name>Skeheenarinky</name>
+  </wpt>
+  <wpt lat="52.3167" lon="-8.2167">
+    <name>Kilbeheny - Galtee Pass begins (18km)</name>
+  </wpt>
+  <wpt lat="52.2945" lon="-8.2456">
+    <name>Galtee Mountain Pass Peak (22km)</name>
+  </wpt>
+  <wpt lat="52.2662" lon="-8.2699">
+    <name>Mitchelstown (35km)</name>
+  </wpt>
+  <wpt lat="52.2134" lon="-8.2567">
+    <name>Kilworth Mountains</name>
+  </wpt>
+  <wpt lat="52.1678" lon="-8.2734">
+    <name>Oliver Plunket Hill</name>
+  </wpt>
+  <wpt lat="52.1378" lon="-8.2726">
+    <name>NIGHT 3 - Fermoy, River Blackwater (70km)</name>
+  </wpt>
+  <trk>
+    <name>Man Up Speak Up - Day 3: Cahir to Fermoy (70km)</name>
+    <desc>27 May 2026 - 8am Start - Galtee Mountains</desc>
+    <trkseg>
+      <trkpt lat="52.3745" lon="-7.9241">
+      </trkpt>
+      <trkpt lat="52.3234" lon="-8.0567">
+      </trkpt>
+      <trkpt lat="52.3167" lon="-8.2167">
+      </trkpt>
+      <trkpt lat="52.2945" lon="-8.2456">
+      </trkpt>
+      <trkpt lat="52.2662" lon="-8.2699">
+      </trkpt>
+      <trkpt lat="52.2134" lon="-8.2567">
+      </trkpt>
+      <trkpt lat="52.1678" lon="-8.2734">
+      </trkpt>
+      <trkpt lat="52.1378" lon="-8.2726">
+      </trkpt>
+    </trkseg>
+  </trk>
+</gpx>

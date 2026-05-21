@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gpx xmlns="http://www.topografix.com/GPX/1/1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.topografix.com/GPX/1/1 http://www.topografix.com/GPX/1/1/gpx.xsd" version="1.1" creator="gpx.py -- https://github.com/tkrajina/gpxpy">
+  <metadata>
+    <name>Man Up Speak Up - Day 1: Dublin to Carlow (82km)</name>
+    <desc>25 May 2026 - 8am Start - Pieta House HQ to Carlow</desc>
+    <author>
+      <name>Chris Amour</name>
+    </author>
+  </metadata>
+  <wpt lat="53.2942" lon="-6.3549">
+    <name>START - Pieta House HQ, Tallaght</name>
+  </wpt>
+  <wpt lat="53.1697" lon="-6.5341">
+    <name>Blessington</name>
+  </wpt>
+  <wpt lat="53.1456" lon="-6.5123">
+    <name>Poulaphouca</name>
+  </wpt>
+  <wpt lat="53.0892" lon="-6.6234">
+    <name>Hollywood</name>
+  </wpt>
+  <wpt lat="53.0234" lon="-6.7012">
+    <name>Dunlavin</name>
+  </wpt>
+  <wpt lat="52.9678" lon="-6.7456">
+    <name>Ballynure</name>
+  </wpt>
+  <wpt lat="52.9089" lon="-6.8234">
+    <name>Castledermot</name>
+  </wpt>
+  <wpt lat="52.8365" lon="-6.9317">
+    <name>NIGHT 1 - Carlow</name>
+  </wpt>
+  <trk>
+    <name>Day 1 - Dublin to Carlow</name>
+    <trkseg>
+      <trkpt lat="53.2942" lon="-6.3549">
+      </trkpt>
+      <trkpt lat="53.1697" lon="-6.5341">
+      </trkpt>
+      <trkpt lat="53.1456" lon="-6.5123">
+      </trkpt>
+      <trkpt lat="53.0892" lon="-6.6234">
+      </trkpt>
+      <trkpt lat="53.0234" lon="-6.7012">
+      </trkpt>
+      <trkpt lat="52.9678" lon="-6.7456">
+      </trkpt>
+      <trkpt lat="52.9089" lon="-6.8234">
+      </trkpt>
+      <trkpt lat="52.8365" lon="-6.9317">
+      </trkpt>
+    </trkseg>
+  </trk>
+</gpx>

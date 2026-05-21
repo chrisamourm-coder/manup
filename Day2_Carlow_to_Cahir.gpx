@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gpx xmlns="http://www.topografix.com/GPX/1/1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.topografix.com/GPX/1/1 http://www.topografix.com/GPX/1/1/gpx.xsd" version="1.1" creator="gpx.py -- https://github.com/tkrajina/gpxpy">
+  <metadata>
+    <name>Man Up Speak Up - Day 2: Carlow to Cahir (80km)</name>
+    <desc>26 May 2026 - 8am Start</desc>
+    <author>
+      <name>Chris Amour</name>
+      <email id="chrisamourm" domain="gmail.com" />
+    </author>
+  </metadata>
+  <wpt lat="52.8365" lon="-6.9317">
+    <name>START - Carlow</name>
+  </wpt>
+  <wpt lat="52.7361" lon="-6.9759">
+    <name>Leighlinbridge (12km)</name>
+  </wpt>
+  <wpt lat="52.7001" lon="-6.9623">
+    <name>Bagenalstown (20km)</name>
+  </wpt>
+  <wpt lat="52.6234" lon="-7.0678">
+    <name>Gowran</name>
+  </wpt>
+  <wpt lat="52.6529" lon="-7.2537">
+    <name>Kilkenny City (46km)</name>
+  </wpt>
+  <wpt lat="52.5445" lon="-7.3902">
+    <name>Callan (62km)</name>
+  </wpt>
+  <wpt lat="52.4623" lon="-7.6234">
+    <name>Clonmel area</name>
+  </wpt>
+  <wpt lat="52.3745" lon="-7.9241">
+    <name>NIGHT 2 - Cahir (80km)</name>
+  </wpt>
+  <trk>
+    <name>Man Up Speak Up - Day 2: Carlow to Cahir (80km)</name>
+    <desc>26 May 2026 - 8am Start</desc>
+    <trkseg>
+      <trkpt lat="52.8365" lon="-6.9317">
+      </trkpt>
+      <trkpt lat="52.7361" lon="-6.9759">
+      </trkpt>
+      <trkpt lat="52.7001" lon="-6.9623">
+      </trkpt>
+      <trkpt lat="52.6234" lon="-7.0678">
+      </trkpt>
+      <trkpt lat="52.6529" lon="-7.2537">
+      </trkpt>
+      <trkpt lat="52.5445" lon="-7.3902">
+      </trkpt>
+      <trkpt lat="52.4623" lon="-7.6234">
+      </trkpt>
+      <trkpt lat="52.3745" lon="-7.9241">
+      </trkpt>
+    </trkseg>
+  </trk>
+</gpx>
