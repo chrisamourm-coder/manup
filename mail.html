@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>You've Got Mail — Man Up, Speak Up</title>
+<meta name="description" content="Letters from Chris Amour. The run is done. The conversation isn't."/>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:#080808;color:#f0f0f0;font-family:'DM Sans',sans-serif;overflow-x:hidden}
+:root{--gold:#FFD700;--dark:#080808;--card:#0d1117;--border:#1a2030}
+::-webkit-scrollbar{width:4px}::-webkit-scrollbar-track{background:#111}::-webkit-scrollbar-thumb{background:var(--gold);border-radius:2px}
+
+nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:16px 24px;display:flex;justify-content:space-between;align-items:center;transition:all .3s;background:rgba(8,8,8,0);border-bottom:1px solid transparent}
+nav.scrolled{background:rgba(8,8,8,.95);backdrop-filter:blur(12px);border-bottom-color:var(--border)}
+.nav-logo{font-family:'Bebas Neue',sans-serif;font-size:22px;letter-spacing:2px;color:var(--gold);text-decoration:none}
+.nav-right{display:flex;align-items:center;gap:20px}
+.nav-home{font-family:'Bebas Neue',sans-serif;font-size:16px;letter-spacing:1px;color:#f0f0f0;text-decoration:none;display:inline-flex;align-items:center;gap:6px;transition:color .2s}
+.nav-home:hover{color:var(--gold)}
+.btn-donate{background:var(--gold);color:#000;font-weight:700;font-size:13px;padding:8px 18px;border-radius:6px;text-decoration:none;letter-spacing:.5px}
+.btn-donate:hover{opacity:.9}
+
+/* HERO */
+.hero{min-height:60vh;display:flex;flex-direction:column;justify-content:flex-end;padding:100px 24px 60px;position:relative;overflow:hidden}
+.hero-bg{position:absolute;inset:0;z-index:0}
+.hero-bg img{width:100%;height:100%;object-fit:cover;object-position:center 30%;filter:brightness(0.3)}
+.hero-bg-overlay{position:absolute;inset:0;background:linear-gradient(to bottom,rgba(8,8,8,.2) 0%,rgba(8,8,8,.6) 50%,rgba(8,8,8,1) 100%)}
+.hero-content{position:relative;z-index:1;max-width:1100px;margin:0 auto;width:100%}
+.tag{display:inline-block;background:rgba(255,215,0,.13);border:1px solid rgba(255,215,0,.27);border-radius:20px;padding:4px 14px;font-size:12px;color:var(--gold);letter-spacing:1px;margin-bottom:20px;text-transform:uppercase}
+.hero h1{font-family:'Bebas Neue',sans-serif;font-size:clamp(64px,12vw,120px);line-height:.9;letter-spacing:2px;color:#fff;margin-bottom:16px}
+.hero h1 span{color:var(--gold)}
+.hero-sub{font-size:clamp(15px,2.5vw,18px);color:#888;line-height:1.6;max-width:520px}
+
+/* MAIN */
+.main{max-width:800px;margin:0 auto;padding:0 24px 80px}
+
+/* FINISH PHOTO */
+.finish-photo{margin:60px 0 72px;border:1px solid var(--border);border-radius:12px;overflow:hidden;background:var(--card)}
+.finish-photo img{width:100%;display:block;object-fit:cover}
+.photo-placeholder{aspect-ratio:16/9;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;background:var(--card)}
+.photo-placeholder-label{font-size:12px;color:#333;letter-spacing:1px;text-transform:uppercase}
+.photo-caption{padding:14px 20px;border-top:1px solid var(--border);display:flex;justify-content:space-between;align-items:center}
+.photo-caption-text{font-size:13px;color:#666}
+.photo-caption-date{font-family:'Bebas Neue',sans-serif;font-size:16px;color:var(--gold);letter-spacing:1px}
+
+/* SECTION HEADER */
+.section-label{font-family:'Bebas Neue',sans-serif;font-size:clamp(40px,8vw,64px);color:#fff;letter-spacing:2px;margin-bottom:8px}
+.section-label span{color:var(--gold)}
+.section-divider{height:1px;background:var(--border);margin-bottom:48px}
+
+/* POSTS */
+.post{background:var(--card);border:1px solid var(--border);border-radius:12px;margin-bottom:20px;overflow:hidden;opacity:0;transform:translateY(16px);transition:opacity .4s ease,transform .4s ease}
+.post.visible{opacity:1;transform:translateY(0)}
+.post-header{padding:24px 28px 20px}
+.post-meta{display:flex;align-items:center;gap:12px;margin-bottom:14px}
+.post-date{font-size:12px;color:#666;letter-spacing:.5px}
+.post-tag{background:rgba(255,215,0,.13);border:1px solid rgba(255,215,0,.27);border-radius:20px;padding:3px 10px;font-size:11px;color:var(--gold);letter-spacing:1px;text-transform:uppercase}
+.post h2{font-family:'Bebas Neue',sans-serif;font-size:clamp(28px,5vw,40px);letter-spacing:1px;color:#fff;line-height:1.05}
+.post-img{width:100%;display:block;border-top:1px solid var(--border);border-bottom:1px solid var(--border);max-height:420px;object-fit:cover}
+.post-body{padding:20px 28px;color:#aaa;font-size:15px;line-height:1.75}
+.post-body p{margin-bottom:1.2em}
+.post-body p:last-child{margin-bottom:0}
+.post-body em{color:#ddd;font-style:italic}
+.post-body strong{color:#f0f0f0;font-weight:600}
+.post-body blockquote{border-left:3px solid var(--gold);padding:12px 20px;background:#080808;border-radius:0 8px 8px 0;margin:1.2em 0;font-style:italic;color:#ccc}
+.post-footer{padding:16px 28px;border-top:1px solid var(--border);display:flex;justify-content:space-between;align-items:center}
+.btn-read-more{background:transparent;border:1px solid var(--border);color:var(--gold);font-family:'Bebas Neue',sans-serif;font-size:15px;letter-spacing:1px;padding:8px 18px;border-radius:6px;cursor:pointer;transition:border-color .2s,background .2s}
+.btn-read-more:hover{border-color:rgba(255,215,0,.5);background:rgba(255,215,0,.07)}
+.btn-delete{background:transparent;border:1px solid #2a1010;color:#663333;font-family:'Bebas Neue',sans-serif;font-size:13px;letter-spacing:1px;padding:6px 14px;border-radius:6px;cursor:pointer;transition:border-color .2s,color .2s}
+.btn-delete:hover{border-color:#cc3333;color:#cc3333}
+.post-body-full{display:none}
+.post-body-full.open{display:block}
+.post-body-preview.hidden{display:none}
+
+/* NO POSTS */
+.no-posts{text-align:center;padding:80px 0;color:#333;font-size:14px;letter-spacing:1px;text-transform:uppercase}
+
+/* WRITE BUTTON (admin) */
+.write-trigger{position:fixed;bottom:28px;right:28px;z-index:200;background:var(--gold);color:#000;border:none;width:52px;height:52px;border-radius:26px;display:none;align-items:center;justify-content:center;cursor:pointer;font-size:28px;font-weight:300;line-height:1;transition:opacity .2s,transform .2s;box-shadow:0 4px 20px rgba(255,215,0,.3)}
+.write-trigger:hover{opacity:.9;transform:scale(1.05)}
+
+/* ADMIN PASSWORD OVERLAY */
+#admin-pw-overlay{position:fixed;inset:0;background:rgba(8,8,8,.97);display:none;align-items:center;justify-content:center;z-index:998}
+.admin-pw-box{background:var(--card);border:1px solid rgba(255,215,0,.3);border-radius:12px;padding:40px 32px;width:100%;max-width:380px;text-align:center}
+.admin-pw-title{font-family:'Bebas Neue',sans-serif;font-size:28px;letter-spacing:2px;color:var(--gold);margin-bottom:8px}
+.admin-pw-sub{font-size:13px;color:#555;margin-bottom:24px}
+.admin-pw-box input{width:100%;background:#080808;border:1px solid var(--border);color:#f0f0f0;font-family:'DM Sans',sans-serif;font-size:15px;letter-spacing:2px;padding:12px 16px;border-radius:6px;outline:none;text-align:center;margin-bottom:12px;transition:border-color .2s}
+.admin-pw-box input:focus{border-color:rgba(255,215,0,.5)}
+.admin-pw-box button{width:100%;background:var(--gold);color:#000;border:none;padding:13px;font-family:'Bebas Neue',sans-serif;font-size:18px;letter-spacing:2px;border-radius:6px;cursor:pointer;transition:opacity .2s}
+.admin-pw-box button:hover{opacity:.9}
+.admin-pw-error{font-size:12px;color:#ff6b6b;margin-top:10px;letter-spacing:1px;display:none;text-transform:uppercase}
+.admin-pw-cancel{display:block;margin-top:16px;font-size:12px;color:#444;cursor:pointer;letter-spacing:1px;text-transform:uppercase;background:none;border:none;width:100%;transition:color .2s}
+.admin-pw-cancel:hover{color:#888}
+
+/* ADMIN WRITE PANEL */
+#admin-panel{position:fixed;inset:0;background:rgba(8,8,8,.97);display:none;align-items:center;justify-content:center;z-index:999;overflow-y:auto;padding:24px}
+.admin-box{background:var(--card);border:1px solid rgba(255,215,0,.3);border-radius:12px;padding:32px;width:100%;max-width:560px;margin:auto}
+.admin-title{font-family:'Bebas Neue',sans-serif;font-size:28px;letter-spacing:2px;color:var(--gold);margin-bottom:6px}
+.admin-sub{font-size:13px;color:#555;margin-bottom:24px}
+.field-label{font-size:11px;color:#555;letter-spacing:1px;text-transform:uppercase;display:block;margin-bottom:6px}
+.admin-box input,.admin-box textarea{width:100%;background:#080808;border:1px solid var(--border);color:#f0f0f0;font-family:'DM Sans',sans-serif;font-size:14px;padding:10px 14px;border-radius:6px;outline:none;margin-bottom:16px;transition:border-color .2s;resize:vertical}
+.admin-box input:focus,.admin-box textarea:focus{border-color:rgba(255,215,0,.5)}
+.admin-box textarea{min-height:180px;line-height:1.7}
+.upload-area{border:1px dashed rgba(255,215,0,.25);border-radius:8px;padding:20px;text-align:center;cursor:pointer;margin-bottom:16px;transition:border-color .2s;color:#444;font-size:12px;letter-spacing:1px;text-transform:uppercase}
+.upload-area:hover{border-color:rgba(255,215,0,.5)}
+.upload-preview{width:100%;max-height:140px;object-fit:cover;border-radius:6px;display:none;margin-bottom:16px;border:1px solid var(--border)}
+input[type=file]{display:none}
+.admin-sep{border:none;border-top:1px solid var(--border);margin:16px 0}
+.admin-row{display:flex;gap:10px;margin-top:8px}
+.btn-publish{flex:1;background:var(--gold);color:#000;border:none;padding:12px;font-family:'Bebas Neue',sans-serif;font-size:18px;letter-spacing:2px;border-radius:6px;cursor:pointer;transition:opacity .2s}
+.btn-publish:hover{opacity:.9}
+.btn-cancel{background:transparent;color:#666;border:1px solid var(--border);padding:12px 20px;font-family:'Bebas Neue',sans-serif;font-size:18px;letter-spacing:2px;border-radius:6px;cursor:pointer;transition:border-color .2s,color .2s}
+.btn-cancel:hover{border-color:#444;color:#aaa}
+
+/* CTA */
+.cta-strip{background:var(--gold);padding:64px 24px;text-align:center}
+.cta-title{font-family:'Bebas Neue',sans-serif;font-size:clamp(48px,10vw,80px);color:#000;letter-spacing:2px;line-height:.95;margin-bottom:16px}
+.cta-sub{color:#333;font-size:15px;margin-bottom:28px;line-height:1.6}
+.btn-cta{display:inline-block;background:#000;color:var(--gold);font-family:'Bebas Neue',sans-serif;font-size:20px;letter-spacing:2px;padding:16px 40px;border-radius:8px;text-decoration:none}
+
+footer{padding:32px 24px;text-align:center;border-top:1px solid var(--border)}
+.footer-logo{font-family:'Bebas Neue',sans-serif;font-size:20px;color:var(--gold);letter-spacing:2px;margin-bottom:8px}
+.footer-info{color:#444;font-size:13px}
+.footer-crisis{color:#ff6b6b;font-size:13px;margin-top:10px}
+.footer-hash{color:#333;font-size:12px;margin-top:14px}
+
+@media(max-width:600px){
+  .main{padding:0 16px 60px}
+  .post-header,.post-body,.post-footer{padding-left:20px;padding-right:20px}
+  .write-trigger{bottom:20px;right:20px}
+  .admin-box{padding:24px}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="nav">
+  <a href="https://manupspeakup.ie" class="nav-logo">Man Up, Speak Up</a>
+  <div class="nav-right">
+    <a href="https://manupspeakup.ie" class="nav-home">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+      HOME
+    </a>
+    <a href="https://idonate.ie/fundraiser/manupspeakup" target="_blank" class="btn-donate">DONATE</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-bg">
+    <img src="/IMG_8389.jpeg" alt="Chris Amour running">
+    <div class="hero-bg-overlay"></div>
+  </div>
+  <div class="hero-content">
+    <span class="tag">Letters from Chris · Est. May 2026</span>
+    <h1>YOU'VE<br><span>GOT MAIL.</span></h1>
+    <p class="hero-sub">The run is done. The conversation isn't. This is where it continues.</p>
+  </div>
+</div>
+
+<!-- MAIN -->
+<main class="main">
+
+
+
+  <div class="section-label">DISPATCHES <span>FROM THE ROAD</span></div>
+  <div class="section-divider"></div>
+
+  <div id="posts-container"></div>
+  <div class="no-posts" id="no-posts-msg" style="display:none;">First dispatch coming soon.</div>
+
+</main>
+
+<!-- CTA -->
+<div class="cta-strip">
+  <div class="cta-title">DONATE NOW</div>
+  <p class="cta-sub">Every cent goes directly to Pieta House. Irish taxpayers — your donation is worth 45% more through tax relief.</p>
+  <a href="https://idonate.ie/fundraiser/manupspeakup" target="_blank" class="btn-cta">idonate.ie/fundraiser/manupspeakup</a>
+</div>
+
+<footer>
+  <div class="footer-logo">MAN UP, SPEAK UP</div>
+  <p class="footer-info">Chris Amour · Solo · Self-Supported · Dublin to Cork · May 25–28 2026</p>
+  <p class="footer-crisis">Pieta House · 1800 247 247 · Free · 24/7 · Text HELP to 51444</p>
+  <p class="footer-hash">#ManUpSpeakUp</p>
+</footer>
+
+<!-- WRITE BUTTON (admin only, shown after auth) -->
+<button class="write-trigger" id="write-btn" title="New post">+</button>
+
+<!-- ADMIN PASSWORD OVERLAY -->
+<div id="admin-pw-overlay">
+  <div class="admin-pw-box">
+    <div class="admin-pw-title">ADMIN</div>
+    <p class="admin-pw-sub">Enter your password to publish.</p>
+    <input type="password" id="admin-pw-input" placeholder="PASSWORD" autocomplete="off">
+    <button id="admin-pw-submit">UNLOCK</button>
+    <div class="admin-pw-error" id="admin-pw-error">Incorrect password</div>
+    <button class="admin-pw-cancel" id="admin-pw-cancel">Cancel</button>
+  </div>
+</div>
+
+<!-- ADMIN WRITE PANEL -->
+<div id="admin-panel">
+  <div class="admin-box">
+    <div class="admin-title">NEW DISPATCH</div>
+    <p class="admin-sub">Write it. Publish it. It lives here forever.</p>
+
+    <label class="field-label">Title</label>
+    <input type="text" id="post-title" placeholder="Give it a headline">
+
+    <label class="field-label">Tag (optional)</label>
+    <input type="text" id="post-tag" placeholder="e.g. The Run, Mental Health, Cork">
+
+    <label class="field-label">Body — blank lines become paragraphs</label>
+    <textarea id="post-body" placeholder="Dear reader..."></textarea>
+
+    <label class="field-label">Photo (optional)</label>
+    <div class="upload-area" onclick="document.getElementById('post-photo').click()">Click to add a photo</div>
+    <input type="file" id="post-photo" accept="image/*">
+    <img id="post-photo-preview" class="upload-preview" alt="Post photo preview">
+
+    <hr class="admin-sep">
+
+    <label class="field-label">Finish line photo — sets the image at the top of the page</label>
+    <div class="upload-area" onclick="document.getElementById('finish-photo-upload').click()">Click to set finish line photo</div>
+    <input type="file" id="finish-photo-upload" accept="image/*">
+    <img id="finish-photo-preview" class="upload-preview" alt="Finish line preview">
+
+    <div class="admin-row">
+      <button class="btn-publish" id="btn-publish">PUBLISH</button>
+      <button class="btn-cancel" id="btn-cancel">CANCEL</button>
+    </div>
+  </div>
+</div>
+
+<script>
+const PW='manupspeakup2026';
+const SK='musup_posts';
+const FK='musup_finish';
+let isAdmin=false;
+let postPhotoData=null,finishPhotoData=null;
+
+function getPosts(){try{return JSON.parse(localStorage.getItem(SK)||'[]')}catch{return[]}}
+function savePosts(p){localStorage.setItem(SK,JSON.stringify(p))}
+function fmtDate(ts){return new Date(ts).toLocaleDateString('en-IE',{day:'numeric',month:'long',year:'numeric'})}
+function parseBody(raw){return raw.split(/\n\n+/).map(p=>p.trim()).filter(Boolean)}
+
+function renderPosts(){
+  const posts=getPosts();
+  const c=document.getElementById('posts-container');
+  const nm=document.getElementById('no-posts-msg');
+  c.innerHTML='';
+  if(!posts.length){nm.style.display='block';return}
+  nm.style.display='none';
+  posts.slice().reverse().forEach((post,i)=>{
+    const paras=parseBody(post.body);
+    const preview=paras.slice(0,2);
+    const hasMore=paras.length>2;
+    const pid='p'+post.id;
+    const el=document.createElement('article');
+    el.className='post';
+    const deleteBtn=isAdmin?`<button class="btn-delete" onclick="deletePost(${post.id},event)">DELETE</button>`:'';
+    el.innerHTML=`
+      <div class="post-header">
+        <div class="post-meta">
+          <span class="post-date">${fmtDate(post.ts)}</span>
+          ${post.tag?`<span class="post-tag">${post.tag}</span>`:''}
+        </div>
+        <h2>${post.title}</h2>
+      </div>
+      ${post.photo?`<img src="${post.photo}" class="post-img" alt="${post.title}">`:''}
+      <div class="post-body post-body-preview" id="${pid}-pre">
+        ${preview.map(p=>`<p>${p}</p>`).join('')}
+      </div>
+      ${hasMore?`
+        <div class="post-footer" id="${pid}-footer">
+          <button class="btn-read-more" onclick="expand('${pid}')">READ MORE</button>
+          ${deleteBtn}
+        </div>
+        <div class="post-body post-body-full" id="${pid}-full">
+          ${paras.map(p=>`<p>${p}</p>`).join('')}
+          <div style="padding-top:8px"><button class="btn-read-more" onclick="collapse('${pid}')">CLOSE</button></div>
+        </div>
+      `:`
+        <div class="post-footer">
+          <span></span>
+          ${deleteBtn}
+        </div>
+      `}
+    `;
+    c.appendChild(el);
+    setTimeout(()=>el.classList.add('visible'),80*i);
+  });
+}
+
+function expand(id){
+  document.getElementById(id+'-pre').classList.add('hidden');
+  document.getElementById(id+'-footer').style.display='none';
+  document.getElementById(id+'-full').classList.add('open');
+}
+function collapse(id){
+  document.getElementById(id+'-pre').classList.remove('hidden');
+  document.getElementById(id+'-footer').style.display='flex';
+  document.getElementById(id+'-full').classList.remove('open');
+}
+function deletePost(id,e){
+  e.stopPropagation();
+  if(!confirm('Delete this post?'))return;
+  const posts=getPosts().filter(p=>p.id!==id);
+  savePosts(posts);
+  renderPosts();
+}
+
+function loadFinishPhoto(){
+  const s=localStorage.getItem(FK);
+  if(s){
+    document.getElementById('photo-placeholder').style.display='none';
+    const img=document.getElementById('finish-photo-img');
+    img.src=s;img.style.display='block';
+  }
+}
+
+// Check for #admin in URL on load
+window.addEventListener('load',()=>{
+  renderPosts();
+  loadFinishPhoto();
+  if(window.location.hash==='#admin'){
+    document.getElementById('admin-pw-overlay').style.display='flex';
+    document.getElementById('admin-pw-input').focus();
+  }
+});
+
+// Nav scroll
+window.addEventListener('scroll',()=>{
+  document.getElementById('nav').classList.toggle('scrolled',window.scrollY>60)
+});
+
+// Admin password
+document.getElementById('admin-pw-submit').addEventListener('click',function(){
+  if(document.getElementById('admin-pw-input').value.trim()===PW){
+    isAdmin=true;
+    document.getElementById('admin-pw-overlay').style.display='none';
+    document.getElementById('write-btn').style.display='flex';
+    history.replaceState(null,'',window.location.pathname);
+    renderPosts();
+  } else {
+    document.getElementById('admin-pw-error').style.display='block';
+    document.getElementById('admin-pw-input').value='';
+    document.getElementById('admin-pw-input').focus();
+  }
+});
+document.getElementById('admin-pw-input').addEventListener('keydown',e=>{if(e.key==='Enter')document.getElementById('admin-pw-submit').click()});
+document.getElementById('admin-pw-cancel').addEventListener('click',()=>{
+  document.getElementById('admin-pw-overlay').style.display='none';
+  history.replaceState(null,'',window.location.pathname);
+});
+
+// Write button opens panel
+document.getElementById('write-btn').addEventListener('click',()=>{
+  document.getElementById('admin-panel').style.display='flex';
+  document.getElementById('post-title').focus();
+});
+
+document.getElementById('btn-cancel').addEventListener('click',closePanel);
+document.addEventListener('keydown',e=>{if(e.key==='Escape')closePanel()});
+
+// Photo uploads
+document.getElementById('post-photo').addEventListener('change',function(e){
+  const f=e.target.files[0];if(!f)return;
+  const r=new FileReader();
+  r.onload=ev=>{postPhotoData=ev.target.result;const p=document.getElementById('post-photo-preview');p.src=postPhotoData;p.style.display='block'};
+  r.readAsDataURL(f);
+});
+document.getElementById('finish-photo-upload').addEventListener('change',function(e){
+  const f=e.target.files[0];if(!f)return;
+  const r=new FileReader();
+  r.onload=ev=>{finishPhotoData=ev.target.result;const p=document.getElementById('finish-photo-preview');p.src=finishPhotoData;p.style.display='block'};
+  r.readAsDataURL(f);
+});
+
+// Publish
+document.getElementById('btn-publish').addEventListener('click',function(){
+  const title=document.getElementById('post-title').value.trim();
+  const body=document.getElementById('post-body').value.trim();
+  const tag=document.getElementById('post-tag').value.trim();
+  if(!title||!body){alert('Title and body are required.');return}
+  if(finishPhotoData){
+    localStorage.setItem(FK,finishPhotoData);
+    document.getElementById('photo-placeholder').style.display='none';
+    const img=document.getElementById('finish-photo-img');
+    img.src=finishPhotoData;img.style.display='block';
+  }
+  const posts=getPosts();
+  posts.push({id:Date.now(),ts:Date.now(),title,body,tag:tag||'',photo:postPhotoData||null});
+  savePosts(posts);
+  closePanel();
+  renderPosts();
+});
+
+function closePanel(){
+  document.getElementById('admin-panel').style.display='none';
+  document.getElementById('post-title').value='';
+  document.getElementById('post-body').value='';
+  document.getElementById('post-tag').value='';
+  document.getElementById('post-photo').value='';
+  document.getElementById('post-photo-preview').style.display='none';
+  document.getElementById('finish-photo-upload').value='';
+  document.getElementById('finish-photo-preview').style.display='none';
+  postPhotoData=null;finishPhotoData=null;
+}
+</script>
+</body>
+</html>
